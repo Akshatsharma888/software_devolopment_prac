@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--this is an implementation of Booleans and If statements which is combined with html css and javascript.-->
+<html>
+
+<head>
+  <title>Booleans and If statements exercises.</title>
+  <style>
+    .top {
+      background-color: black;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .hel1 {
+      background-color: rgb(41, 231, 219);
+      color: black;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body style="height: 1000px;">
+  <div class="top">
+    <p style="color: white; margin-left: 10px; margin-bottom: 0;">24 Hour format time</p>
+    <button class="hel1" onclick="showMessage()">Hours</button>
+    <script>
+      const Hour = 9;
+      function showMessage() {
+        if (Hour > 6 && Hour < 12) {
+          alert(`Good Morning ${'Akshat Sharma'}`);
+        } else if (Hour >= 12 && Hour < 17) {
+          alert(`Good Afternoon ${'Akshat Sharma'}`);
+        } else {
+          alert(`Good Night ${'Akshat Sharma'}`);
+        }
+      }
+    </script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!this is an implementation of Booleans and If statements which is conbined with html css and javascript.>
+  <html>
+
+  <head>
+    <title>Rock Paper Scissors for Booleans and If statements exercise.</title>
+    <style>
+      .top {
+        background-color: black;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      .hel1 {
+        background-color: rgb(41, 231, 219);
+        color: black;
+        margin-top: 20px;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+
+  <body style="height: 1000px;">
+    <div class="top">
+      <p style="color: white; margin-left: 10px; margin-bottom: 0;">Rock Paper Scissors</p>
+      <button class="hel1" onclick="
+        const randomnumber = Math.random();
+        let computermove = ' ';
+        if (randomnumber >= 0 && randomnumber < 1/3){
+          computermove = 'Rock'
+        }
+        else if (randomnumber >= 1/3 && randomnumber < 2/3){
+          computermove = 'Paper'
+        }
+        else if (randomnumber >= 2/3 && randomnumber <  1){
+          computermove = 'Scissors'
+        }
+        console.log(computermove)
+
+        let Result = ' ';
+        if (computermove === 'Rock'){
+          Result = 'Tie.';
+        }
+        else if (computermove === 'Paper'){
+          Result = 'You Lose'
+        }
+        else if (computermove === 'Scissors'){
+          Result = 'You Win'
+        }
+        console.log(alert(`You picked rock. Computer picked ${computermove}. ${Result}.`))
+        ">Rock</button>
+      <button class="hel1" onclick="
+        const randomnumber = Math.random();
+        let computermove = ' ';
+        if (randomnumber >= 0 && randomnumber < 1/3){
+          computermove = 'Rock'
+        }
+        else if (randomnumber >= 1/3 && randomnumber < 2/3){
+          computermove = 'Paper'
+        }
+        else if (randomnumber >= 2/3 && randomnumber <  1){
+          computermove = 'Scissors'
+        }
+        console.log(computermove)
+
+        let Result = ' ';
+        if (computermove === 'Rock'){
+          Result = 'You Win';
+        }
+        else if (computermove === 'Paper'){
+          Result = 'Tie'
+        }
+        else if (computermove === 'Scissors'){
+          Result = 'You Lose'
+        }
+        console.log(alert(`You picked Paper. Computer picked ${computermove}. ${Result}.`))
+    ">Paper</button>
+      <button class="hel1" 
+      onclick="
+        const randomnumber = Math.random();
+        let computermove = ' ';
+        if (randomnumber >= 0 && randomnumber < 1/3){
+          computermove = 'Rock'
+        }
+        else if (randomnumber >= 1/3 && randomnumber < 2/3){
+          computermove = 'Paper'
+        }
+        else if (randomnumber >= 2/3 && randomnumber <  1){
+          computermove = 'Scissors'
+        }
+        console.log(computermove)
+
+        let Result = ' ';
+        if (computermove === 'Rock'){
+          Result = 'You Lose';
+        }
+        else if (computermove === 'Paper'){
+          Result = 'You Win'
+        }
+        else if (computermove === 'Scissors'){
+          Result = 'Tie'
+        }
+        console.log(alert(`You picked Scissors . Computer picked ${computermove}. ${Result}.`))
+      ">Scissors</button>
+      <script>
+      </script>
+  </body>
+
+  </html>

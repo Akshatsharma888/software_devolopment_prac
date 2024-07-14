@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--this is an implementation of DOM which is combined with html css and javascript.-->
+<html>
+  <head>
+    <title>DOM exercises.</title>
+    <style>
+      body{
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <!-- Corrected the onkeydown event to be on the input element instead of the button -->
+      <input type="text" placeholder="Your Name" class="js-input" onkeydown="handle_key(event)"><button style="margin-left: 6px;" onclick="jsinput()">Submit</button>
+      <p class="js-text-result"></p>
+    </div>
+    <script>
+      function handle_key(event){
+        console.log(event.key);
+        if (event.key === 'Enter'){
+          jsinput();
+        }
+      }
+      function jsinput(){
+        const inputElement = document.querySelector('.js-input');
+        let input_val = inputElement.value;
+        document.querySelector('.js-text-result').innerHTML = `Your name is ${input_val}`;
+      }
+    </script>
+  </body>
+</html>

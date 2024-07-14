@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--this is an implementation of DOM which is combined with html css and javascript.-->
+<html>
+
+<head>
+  <title>DOM exercises.</title>
+  <style>
+    p {
+      color: white;
+      margin-left: 10px;
+    }
+
+    .top {
+      background-color: black;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .hel1 {
+      background-color: rgb(41, 231, 219);
+      color: black;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body style="height: 1000px;">
+  <div class="top">
+    <p style="color: white; margin-left: 10px; margin-bottom: 0;">Cart Quantity</p>
+    <button class="hel1" onclick="cartquantity = 0; show_quantity();">Show Quantity</button>
+    <button class="hel1" onclick="cartquantity += 1; show_quantity();">Add to Cart</button>
+    <button class="hel1" onclick="cartquantity += 2; show_quantity();">+2</button>
+    <button class="hel1" onclick="cartquantity += 3; show_quantity();">+3</button>
+    <button class="hel1" onclick="cartquantity += 4; show_quantity();">+4</button>
+    <button class="hel1" onclick="cartquantity += 5; show_quantity();">+5</button>
+    <button class="hel1" onclick="cartquantity -= 1; show_quantity();">-1</button>
+    <button class="hel1" onclick="cartquantity -= 2; show_quantity();">-2</button>
+    <button class="hel1" onclick="cartquantity -= 3; show_quantity();">-3</button>
+    <button class="hel1" onclick="cartquantity = 0; show_quantity();">Reset Cart</button>
+    <p class="js-show"></p>
+  </div>
+  <script>
+    let cartquantity = 0;
+    function show_quantity() {
+      document.querySelector('.js-show').innerHTML = `Cart Quantity: ${cartquantity}`;
+    }
+    // Initialize the display
+    show_quantity();
+  </script>
+</body>
+
+</html>

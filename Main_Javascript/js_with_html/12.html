@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--this is an implementation of function which is combined with html css and javascript.-->
+<html>
+
+<head>
+  <title>function exercises.</title>
+  <style>
+    .top {
+      background-color: black;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .hel1 {
+      background-color: rgb(41, 231, 219);
+      color: black;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body style="height: 1000px;">
+  <div class="top">
+    <p style="color: white; margin-left: 10px; margin-bottom: 0;">km and miles as well as ft converter</p>
+    <button class="hel1" onclick="convertlength(5,'miles','km')">miles to km converter</button>
+    <button class="hel1" onclick="convertlength(5,'miles','ft')">miles to ft converter</button>
+    <button class="hel1" onclick="convertlength(5,'km','ft')">km to ft converter</button>
+    <script>
+      function convertlength(length, from, to) {
+        let result; // Declare result variable to ensure it's scoped properly
+        if (from === 'miles' && to === 'km') {
+          result = length * 1.6;
+          alert(`Given ${length} in miles is :${result} km`);
+        } else if (from === 'miles' && to === 'ft') {
+          result = length * 5280;
+          alert(`Given ${length} in miles is :${result} ft`);
+        } else if (from === 'km' && to === 'ft') {
+          result = length * 3281;
+          alert(`Given ${length} in km is :${result} ft`);
+        }
+      } // Added missing closing brace for the function
+    </script>
+  </div>
+</body>
+
+</html>

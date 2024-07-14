@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--this is an implementation of objects which is combined with html css and javascript.-->
+<html>
+
+<head>
+  <title>Calculator objects exercise.</title>
+  <style>
+    .top {
+      background-color: black;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .hel1 {
+      background-color: rgb(41, 231, 219);
+      color: black;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body style="height: 1000px;">
+  <div class="top">
+    <p>
+      <button class="hel1" onclick="updateCalculation('1')">1</button>
+      <button class="hel1" onclick="updateCalculation('2')">2</button>
+      <button class="hel1" onclick="updateCalculation('3')">3</button>
+      <button class="hel1" onclick="updateCalculation('+')">+</button>
+    </p>
+    <p>
+      <button class="hel1" onclick="updateCalculation('4')">4</button>
+      <button class="hel1" onclick="updateCalculation('5')">5</button>
+      <button class="hel1" onclick="updateCalculation('6')">6</button>
+      <button class="hel1" onclick="updateCalculation('-')">-</button>
+    </p>
+    <p>
+      <button class="hel1" onclick="updateCalculation('7')">7</button>
+      <button class="hel1" onclick="updateCalculation('8')">8</button>
+      <button class="hel1" onclick="updateCalculation('9')">9</button>
+      <button class="hel1" onclick="updateCalculation('*')">*</button>
+    </p>
+    <p>
+      <button class="hel1" onclick="updateCalculation('0')">0</button>
+      <button class="hel1" onclick="updateCalculation('.')">.</button>
+      <button class="hel1" onclick="performCalculation()">=</button>
+      <button class="hel1" onclick="updateCalculation('/')">/</button>
+    </p>
+    <p>
+      <button class="hel1" style="margin-top: 10px;margin-left: 10px;" onclick="clearCalculation()">Clear</button>
+    </p>
+  </div>
+  <script>
+    let calculation = JSON.parse(localStorage.getItem('value')) || '';
+
+    function updateCalculation(value) {
+      calculation += value;
+      console.log(calculation); // For debugging purposes
+    }
+    localStorage.setItem('value',JSON.stringify(calculation));
+
+    function performCalculation() {
+      try {
+        calculation = eval(calculation).toString();
+        alert(`Result: ${calculation}`);
+      } catch (error) { 
+        alert('Error in calculation');
+        calculation = '';
+      }
+    }
+
+    function clearCalculation() {
+      calculation = '';
+      console.log('Calculation cleared'); // For debugging purposes
+    }
+  </script>
+</body>
+
+</html>

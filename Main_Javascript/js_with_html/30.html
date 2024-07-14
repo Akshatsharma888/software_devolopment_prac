@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!this is an implementation of Advanced functions such as setTimeout() which is conbined with html css and javascript.>
+<html>
+
+<head>
+  <title>use of advanced functions</title>
+  <style>
+    body {
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="js-click" onclick="function1()">Start</button>
+  <button class="js-click1" onclick="function2()">Start2</button>
+  <div>
+    <button style="margin-top: 50px;" class="js-button" onclick="function3()">Add to cart</button>
+    <p class="js-output" style="color: white;"></p>
+  </div>
+  <script>
+    function function1() {
+      setTimeout(function () {
+        document.querySelector('.js-click').innerHTML = 'Finished';
+      }, 1000);
+    }
+    function function2() {
+      setTimeout(function () {
+        document.querySelector('.js-click1').innerHTML = 'Loading...';
+        setTimeout(function () {
+          document.querySelector('.js-click1').innerHTML = 'Finished!';
+        }, 500);
+      }, 500);
+    }
+    function function3() {
+        setTimeout(function () {
+          document.querySelector('.js-output').innerHTML = 'Added';
+          setTimeout(function () {
+            document.querySelector('.js-output').innerHTML = '';
+          }, 2000);
+        }, 2000);
+      }
+  </script>
+</body>
+
+</html>

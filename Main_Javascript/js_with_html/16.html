@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!this is an implementation of DOM(Document Object Model) which is conbined with html css and javascript.>
+  <html>
+
+  <head>
+    <title>dom_project.</title>
+    <style>
+      p {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .js-subscribe_button{
+        color:  white;
+        background-color: rgb(153, 32, 32);
+        padding: 10px 15px 10px 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        border: none;
+        border-radius: 18px;
+        margin-left: 5px;
+        margin-bottom: 30px;
+      }
+      .is-subscribed{
+        background-color: rgb(239, 239, 239);
+        color: black;
+      }
+      .js-input{
+        padding: 10px 15px 10px 15px;
+      }
+      .js-calci{
+        padding: 10px 15px 10px 15px;
+        color: white;
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: black; height: 1000px;" >
+    <div>
+      <p>Youtube Subscribe button</p>
+      <button onclick="Subscribe();" class="js-subscribe_button">Subscribe</button>
+    </div>
+    <div>
+      <p>Amazon Shipping Calculator</p>
+      <p>Orders under $40 = +$10 Shipping</p>
+      <p>Orders over $40 = Free Shipping</p>
+      <input type="text" placeholder="Cost Of Order" class="js-input" onkeydown="handle_key();"><button
+        style="margin-left: 5px;" onclick="CalculateTotal();" class="js-calci">Calculate</button>
+      <p class="js-total-result"></p>
+    </div>
+    <script>
+      function handle_key() {
+        console.log(event.key);
+        if (event.key === 'Enter') {
+          CalculateTotal();
+        }
+      }
+      function Subscribe() {
+        const DocumentElement = document.querySelector('.js-subscribe_button');
+        if (DocumentElement.innerHTML === 'Subscribe') {
+          DocumentElement.innerHTML = 'Subscribed'
+          DocumentElement.classList.add('is-subscribed');
+        } else {
+          DocumentElement.innerHTML = 'Subscribe'
+          DocumentElement.classList.remove('is-subscribed');
+        }
+      }
+      function CalculateTotal() {
+        const inputElement = document.querySelector('.js-input')
+        let Cost = Number(parseFloat(inputElement.value));
+        if (Cost < 40) {
+          Cost += 10;
+        }
+        document.querySelector('.js-total-result').innerHTML = `$${Cost}`
+      }
+    </script>
+  </body>
+
+  </html>

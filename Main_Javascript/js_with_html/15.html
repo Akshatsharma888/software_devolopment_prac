@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- This is an implementation of objects combined with HTML, CSS, and JavaScript. -->
+<html>
+
+<head>
+  <title>objects exercise</title>
+  <style>
+    .top {
+      background-color: black;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .hel1 {
+      background-color: rgb(41, 231, 219);
+      color: black;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body style="height: 1000px;">
+  <div class="top">
+    <p style="color: white; margin-left: 10px; margin-bottom: 0;">coin flip</p>
+    <button class="hel1" onclick="showMessage('Heads')">Heads guess</button>
+    <button class="hel1" onclick="showMessage('Tails')">Tails guess</button>
+    <script>
+      let scores = JSON.parse(localStorage.getItem('scores')) || {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+      function showMessage(guess) {
+        const randomnumber = Math.random();
+        let result;
+        if (randomnumber < 0.5) {
+          result = 'Heads';
+        } else {
+          result = 'Tails';
+        }
+        alert(result); // Show the result of the coin flip
+
+        // Check if the guess matches the result
+        if (guess === result) {
+          alert('You win');
+          scores.wins += 1;
+        } else {
+          alert('You lose');
+          scores.losses += 1;
+        }
+        localStorage.setItem('scores', JSON.stringify(scores))
+        alert(`Wins: ${scores.wins}, Losses: ${scores.losses}`);
+      }
+    </script>
+  </div>
+</body>
+
+</html>

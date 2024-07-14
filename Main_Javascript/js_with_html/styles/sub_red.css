@@ -1,0 +1,35 @@
+p {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.js-subscribe_button {
+  color: white;
+  background-color: rgb(153, 32, 32);
+  padding: 10px 15px 10px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border: none;
+  border-radius: 18px;
+  margin-left: 5px;
+  margin-bottom: 30px;
+}
+
+.is-subscribed {
+  background-color: rgb(239, 239, 239);
+  color: black;
+}
+
+.js-input {
+  padding: 10px 15px 10px 15px;
+}
+
+.js-calci {
+  padding: 10px 15px 10px 15px;
+  color: white;
+  background-color: green;
+}
+
+.red {
+  color: red;
+}

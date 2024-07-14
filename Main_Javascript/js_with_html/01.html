@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!this is an implementation of variables which is conbined with html css and javascript.>
+<html>
+
+<head>
+  <title>Cart Quantity variable exercise.</title>
+  <style>
+    .top {
+      background-color: black;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .hel1 {
+      background-color: rgb(41, 231, 219);
+      color: black;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body style="height: 1000px;">
+  <div class="top">
+    <p style="color: white; margin-left: 10px; margin-bottom: 0;">Cart Quantity</p>
+    <button class="hel1" onclick="
+      console.log(alert(`cartquantity : ${cartquantity = 0}`))
+        ">Show Quantity</button>
+    <button class="hel1" onclick="console.log(alert(`cartquantity : ${cartquantity+=1}`))">Add to Cart</button>
+    <button class="hel1" onclick="console.log(alert(`cartquantity : ${cartquantity+=2}`));">+2</button>
+    <button class="hel1" onclick="console.log(alert(`cartquantity : ${cartquantity+=3}`))">+3</button>
+    <button class="hel1" onclick="console.log(alert(`cartquantity : ${cartquantity+=4}`))">+4</button>
+    <button class="hel1" onclick="console.log(alert(`cartquantity : ${cartquantity+=5}`))">+5</button>
+    <button class="hel1" onclick="console.log(alert(`cartquantity : ${cartquantity-=1}`))">-1</button>
+    <button class="hel1" onclick="console.log(alert(`cartquantity : ${cartquantity-=2}`))">-2</button>
+    <button class="hel1" onclick="console.log(alert(`cartquantity : ${cartquantity-=3}`))">-3</button>
+    <button class="hel1" onclick="
+    console.log(alert('Cart was Reset'));
+    console.log(alert(`cartquantity : ${cartquantity= 0}`))">Reset Cart</button>
+  </div>
+  <script>
+    let cartquantity = 0;
+  </script>
+</body>
+
+</html>

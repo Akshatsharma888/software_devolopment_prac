@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!this is an implementation of variables which is conbined with html css and javascript.>
+<html>
+
+<head>
+  <title>Cart Quantity variable exercise.</title>
+  <style>
+    .top {
+      background-color: black;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .hel1 {
+      background-color: rgb(41, 231, 219);
+      color: black;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body style="height: 1000px;">
+  <div class="top">
+    <button class="hel1" onclick="console.log(alert(`My Name is: ${Name}`))">Show name</button>
+    <button class="hel1" onclick="console.log(alert(`Cost Of Food: $${cost}`))">Show cost</button>
+    <button class="hel1" onclick="console.log(alert(`Tax 10%: $${cost2}`))">Show tax over cost</button>
+    <button class="hel1" onclick="console.log(alert(`Total_Cost: $${total_Cost}`))">Show Total cost</button>
+  </div>
+  <script>
+    let Name = 'Akshat sharma';
+    let cost = (3*2)+5+9
+    let cost2 = cost*0.1
+    let total_Cost = cost + cost2 
+  </script>
+</body>
+
+</html>

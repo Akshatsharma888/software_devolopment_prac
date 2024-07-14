@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--this is an implementation of function which is combined with html css and javascript.-->
+<html>
+
+<head>
+  <title>function exercises.</title>
+  <style>
+    .top {
+      background-color: black;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .hel1 {
+      background-color: rgb(41, 231, 219);
+      color: black;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body style="height: 1000px;">
+  <div class="top">
+    <p style="color: white; margin-left: 10px; margin-bottom: 0;">km and miles converter</p>
+    <button class="hel1" onclick="convertlength(50,'miles','km')">miles to km converter</button>
+    <button class="hel1" onclick="convertlength(32,'km','miles')">km to miles converter</button>
+    <button class="hel1" onclick="convertlength(50,'km','km')">km to km converter</button>
+    <script>
+      function convertlength(length, from, to) {
+        let result; // Declare result variable to ensure it's scoped properly
+        if (from === 'miles' && to === 'km') {
+          result = length * 1.6;
+          alert(`Given ${length} in miles is :${result} km`);
+        } else if (from === 'km' && to === 'miles') {
+          result = length / 1.6;
+          alert(`Given ${length} in km is :${result} miles`);
+        } else if (from === to) {
+          alert(`No conversion needed. ${length} ${from} is equal to ${length} ${to}.`);
+        }
+      }
+    </script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!this is an implementation of with html css and javascript.>
+  <html>
+
+  <head>
+    <title>html css and javascript.</title>
+    <link rel="stylesheet" href="styles/sub_red.css">
+  </head>
+
+  <body style="background-color: black; height: 1000px;">
+    <div>
+      <p>Youtube Subscribe button</p>
+      <button onclick="Subscribe();" class="js-subscribe_button">Subscribe</button>
+    </div>
+    <div>
+      <p>Amazon Shipping Calculator</p>
+      <p>Orders under $40 = +$10 Shipping</p>
+      <p>Orders over $40 = Free Shipping</p>
+      <input type="text" placeholder="Cost Of Order" class="js-input" onkeydown="handle_key();"><button
+        style="margin-left: 5px;" onclick="CalculateTotal();" class="js-calci">Calculate</button>
+      <p class="js-total-result"></p>
+    </div>
+    <script src="scripts/sub_red.js"></script>
+  </body>
+
+  </html>

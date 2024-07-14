@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!this is an implementation of DOM which is conbined with html css and javascript.>
+<html>
+
+<head>
+  <title>DOM exercises.</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      /* Added for better visibility of text on black background */
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <button class="js-button">hello</button>
+    <button class="js-2button">hey</button> <!-- Corrected class name from 'js-2buttton' to 'js-2button' -->
+  </div>
+  <div>
+    <button class="js-heads">heads</button> <!-- Added class name for consistency -->
+    <button class="js-tails">tails</button> <!-- Added class name for consistency -->
+    <p class="js-3button"></p>
+  </div>
+  <script>
+    console.log(document.querySelector('.js-button'));
+    document.querySelector('.js-2button').innerHTML = 'Akshat Sharma'; // Corrected class name to '.js-2button'
+    function onhead(result) {
+      document.querySelector('.js-3button').innerHTML = `you choose ${result}`;
+    }
+    // Event listeners for heads and tails buttons
+    document.querySelector('.js-heads').addEventListener('click', function() {
+      onhead('heads');
+    });
+    document.querySelector('.js-tails').addEventListener('click', function() {
+      onhead('tails');
+    });
+  </script>
+</body>
+
+</html>

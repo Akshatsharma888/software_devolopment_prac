@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<! images based exercise>
+<! use of imajes and text box in css practice>
+<html>
+  <title>02</title>
+  <head>
+    <style>
+      .search1{
+        border-radius: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 6px;
+        border: solid;
+        border-color: rgb(235, 230, 230);
+      }
+      .search2{
+        padding-right: 250px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 6px;
+        border: solid;
+        border-color: rgb(235, 230, 230);
+        border-radius: 15px;
+        border: none;
+      }
+      .search2:hover{
+        cursor: pointer;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+      }
+      .search3{
+        padding-right: 138px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 6px;
+      }
+      .b1{
+        width: 311px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        border: none;
+        background-color: rgb(47, 93, 208);
+        border-radius: 25px;
+        color: white;
+        transition: background-color 0.15s,
+        color 0.15s;
+      }
+      .b2:hover{
+        background-color: rgb(7, 48, 143);
+        cursor: pointer;
+      }
+      .b1:hover{
+        cursor: pointer;
+        transition: background-color 0.15s;
+      }
+      .b1:active{
+        opacity: 0.6;
+      }
+
+      .b2{
+        vertical-align: text-bottom;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        margin-left: 4px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 25px;
+        color: white;
+        background-color: rgb(29, 155, 240);
+        font-weight: bold;
+        border: none;
+      }
+      .text1{
+        color: rgb(133, 129, 129);
+        font-size: small;
+        margin-left: 0;
+        margin-bottom: 5px;
+      }
+      .text2{
+        color: rgb(133, 129, 129);
+        font-size: small;
+      }
+      .img1{
+        height: 45px;
+        width: 45px;
+        border-radius: 30px;
+        vertical-align: top;
+      }
+      .x1{
+        vertical-align: top;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-right: 95px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <input class="search1" type="text" placeholder="Search">
+    <p>--------------------------------------------------------</p>
+    <input class="search2" type="text" placeholder="Search Google or type a url">
+    <p>--------------------------------------------------------</p>
+    <p class="text1">EMAIL</p>
+    <input class="search3" type="text" placeholder="">
+    <p class="text2">By clicking to Agree & join you agree to the Privacy Policy.</p>
+    <button class="b1">Agree & Join</button>
+    <p>--------------------------------------------------------</p>
+    <img class="img1" src="imajes/images.jpeg">
+    <input class="x1" type="text" placeholder="What's happening?">
+    <button class="b2">Tweet</button>
+  </body>
+</html>

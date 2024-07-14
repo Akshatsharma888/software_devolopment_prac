@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!this is an implementation of Advanced functions such as setTimeout() which is conbined with html css and javascript.>
+<html>
+  <head>
+    <!-- use of advanced functions -->
+    <title>App</title>
+    <style>
+      body {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button onclick="add()">Add</button><button onclick="Remove()">Remove</button>
+    </div>
+    <script>
+      let Messages = 2;
+      const originalTitle = document.title;
+      let showMessages = true;
+
+      setInterval(function() {
+        if (showMessages) {
+          Messages++;
+          document.title = `(${Messages}) New Messages`;
+        } else {
+          document.title = originalTitle;
+        }
+        showMessages = !showMessages;
+      }, 1000);
+
+      function add(){
+        Messages += 1;
+      }
+
+      function Remove(){
+        Messages -= 1;
+      }
+    </script>
+  </body>
+</html>
