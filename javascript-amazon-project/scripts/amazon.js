@@ -67,7 +67,9 @@ function updateCartQuantity() {
   });
   document.querySelector(".js-cartquantity").innerHTML = cartQuantity;
 }
+
 document.querySelector(".js-products-grid").innerHTML = productHtml;
+updateCartQuantity();
 document.querySelectorAll(".js-addto-cart").forEach((button) => {
   button.addEventListener("click", () => {
     const productId = button.dataset.productId;
