@@ -1,6 +1,6 @@
 // main.js
 
-import { cart, removeCart, updateQuantity ,updateDeliveryOption} from "../data/cart.js";
+import { cart, removeCart, updateQuantity, updateDeliveryOption } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
@@ -24,11 +24,11 @@ cart.forEach((cartItem) => {
   });
   const today = dayjs();
   const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
-  const daysString = deliveryDate.format("dddd,MMMM D");
+  const daysString = deliveryDate.format("dddd, MMMM D");
   cartSummaryHtml += `<div class="cart-item-container js-cart-item-container-${
     matchingProduct.id
   }">
-            <div class="delivery-date">
+            <div class="delivery-date js-delivery-date-${matchingProduct.id}">
               ${daysString}
             </div>
 
@@ -83,13 +83,13 @@ function deliveryOptionsHtml(matchingProduct, cartItem) {
   deliveryOptions.forEach((deliveryOption) => {
     const today = dayjs();
     const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
-    const daysString = deliveryDate.format("dddd,MMMM D");
+    const daysString = deliveryDate.format("dddd, MMMM D");
     const priceString =
       deliveryOption.priceCents === 0
         ? "Free"
         : `$${formatCurrency(deliveryOption.priceCents)} -`;
     const isChecked = deliveryOption.id === cartItem.deliveryOptionsId;
-    Html += `<div class="delivery-option js-delivery-option data-product-id="${matchingProduct.id}" data-delivery-option-id="${deliveryOption.id}">
+    Html += `<div class="delivery-option js-delivery-option" data-product-id="${matchingProduct.id}" data-delivery-option-id="${deliveryOption.id}">
                   <input type="radio"
                     ${isChecked ? "checked" : ""}
                     class="delivery-option-input"
@@ -169,13 +169,6 @@ document.querySelectorAll(".js-delete-link").forEach((link) => {
   });
 });
 
-document.querySelectorAll('.js-delivery-option').forEach((Element) =>{
-  Element.addEventListener('click',()=>{
-    const {productId,deliveryOptionId} = Element.dataset;
-    updateDeliveryOption(productId,deliveryOptionId)
-  })
-})
-
 // Update the total cart quantity in the header
 function updateCartQuantity() {
   let cartQuantity = 0;
@@ -186,3 +179,26 @@ function updateCartQuantity() {
 }
 
 updateCartQuantity();
+
+// Add event listeners for delivery options
+document.querySelectorAll('.js-delivery-option').forEach((element) => {
+  element.addEventListener('click', () => {
+    const { productId, deliveryOptionId } = element.dataset;
+    updateDeliveryOption(productId, deliveryOptionId);
+    updateDeliveryDate(productId);
+  });
+});
+
+// Function to update the delivery date in the DOM
+function updateDeliveryDate(productId) {
+  const cartItem = cart.find(item => item.productId === productId);
+  const deliveryOption = deliveryOptions.find(option => option.id === cartItem.deliveryOptionsId);
+  const today = dayjs();
+  const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
+  const daysString = deliveryDate.format("dddd, MMMM D");
+
+  const deliveryDateElement = document.querySelector(`.js-delivery-date-${productId}`);
+  if (deliveryDateElement) {
+    deliveryDateElement.textContent = daysString;
+  }
+}

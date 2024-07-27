@@ -64,13 +64,13 @@ export function updateQuantity(productId, newQuantity) {
     console.error(`Product ID ${productId} not found in cart.`);
   }
 }
+
 export function updateDeliveryOption(productId, deliveryOptionId) {
-  let matchingItem;
-  cart.forEach((cartItem) => {
-    if (productId === cartItem.productId) {
-      matchingItem = cartItem;
-    }
-  });
-  matchingItem.deliveryOptionId = deliveryOptionId;
-  saveToStorage();
+  const matchingItem = cart.find((cartItem) => cartItem.productId === productId);
+  if (matchingItem) {
+    matchingItem.deliveryOptionsId = deliveryOptionId;
+    saveToStorage();
+  } else {
+    console.error(`Product ID ${productId} not found in cart.`);
+  }
 }
