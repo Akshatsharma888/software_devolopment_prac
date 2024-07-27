@@ -1,6 +1,6 @@
 // main.js
 
-import { cart, removeCart, updateQuantity } from "../data/cart.js";
+import { cart, removeCart, updateQuantity ,updateDeliveryOption} from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
@@ -89,7 +89,7 @@ function deliveryOptionsHtml(matchingProduct, cartItem) {
         ? "Free"
         : `$${formatCurrency(deliveryOption.priceCents)} -`;
     const isChecked = deliveryOption.id === cartItem.deliveryOptionsId;
-    Html += `<div class="delivery-option">
+    Html += `<div class="delivery-option js-delivery-option data-product-id="${matchingProduct.id}" data-delivery-option-id="${deliveryOption.id}">
                   <input type="radio"
                     ${isChecked ? "checked" : ""}
                     class="delivery-option-input"
@@ -168,6 +168,13 @@ document.querySelectorAll(".js-delete-link").forEach((link) => {
     }
   });
 });
+
+document.querySelectorAll('.js-delivery-option').forEach((Element) =>{
+  Element.addEventListener('click',()=>{
+    const {productId,deliveryOptionId} = Element.dataset;
+    updateDeliveryOption(productId,deliveryOptionId)
+  })
+})
 
 // Update the total cart quantity in the header
 function updateCartQuantity() {

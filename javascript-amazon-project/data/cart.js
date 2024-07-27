@@ -1,25 +1,25 @@
 // cart.js
 
 // Initialize the cart from localStorage or use a default cart
-export let cart = JSON.parse(localStorage.getItem('cart'));
+export let cart = JSON.parse(localStorage.getItem("cart"));
 if (!cart) {
   cart = [
     {
       productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
       quantity: 2,
-      deliveryOptionsId: '1'
+      deliveryOptionsId: "1",
     },
     {
       productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
       quantity: 1,
-      deliveryOptionsId: '2'
+      deliveryOptionsId: "2",
     },
   ];
 }
 
 // Save the current state of the cart to localStorage
 function saveToStorage() {
-  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 // Add a product to the cart, updating quantity if it already exists
@@ -42,7 +42,7 @@ export function addToCart(productId) {
     cart.push({
       productId: productId,
       quantity: quantity,
-      deliveryOptionsId:'1'
+      deliveryOptionsId: "1",
     });
   }
   saveToStorage();
@@ -63,4 +63,14 @@ export function updateQuantity(productId, newQuantity) {
   } else {
     console.error(`Product ID ${productId} not found in cart.`);
   }
+}
+export function updateDeliveryOption(productId, deliveryOptionId) {
+  let matchingItem;
+  cart.forEach((cartItem) => {
+    if (productId === cartItem.productId) {
+      matchingItem = cartItem;
+    }
+  });
+  matchingItem.deliveryOptionId = deliveryOptionId;
+  saveToStorage();
 }
