@@ -10,6 +10,7 @@ import { products ,getProduct} from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions ,getDeliveryOptions} from "../../data/deliveryoptions.js";
+import { renderPaymentSummary } from "./paymentsummary.js";
 
 export function renderOrderSummary() {
   let cartSummaryHtml = "";
@@ -160,6 +161,7 @@ export function renderOrderSummary() {
       );
       if (container) {
         container.remove();
+        renderPaymentSummary();
         updateCartQuantity();
       } else {
         console.error(`Container for product ID ${productId} not found.`);
@@ -179,6 +181,7 @@ export function renderOrderSummary() {
   }
 
   updateCartQuantity();
+  renderPaymentSummary();
 
   // Add event listeners for delivery options
   document.querySelectorAll(".js-delivery-option").forEach((element) => {
@@ -187,6 +190,7 @@ export function renderOrderSummary() {
       updateDeliveryOption(productId, deliveryOptionId);
       updateDeliveryDate(productId);
       renderOrderSummary();
+      renderPaymentSummary();
     });
   });
 
