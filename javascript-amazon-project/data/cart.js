@@ -1,20 +1,23 @@
 // cart.js
+export let cart;
+loadFromStoarage();
+export function loadFromStoarage(){
+  cart = JSON.parse(localStorage.getItem("cart"));
+  if (!cart) {
+    cart = [
+      {
+        productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+        quantity: 2,
+        deliveryOptionsId: "1",
+      },
+      {
+        productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+        quantity: 1,
+        deliveryOptionsId: "2",
+      },
+    ];
+  }
 
-// Initialize the cart from localStorage or use a default cart
-export let cart = JSON.parse(localStorage.getItem("cart"));
-if (!cart) {
-  cart = [
-    {
-      productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-      quantity: 2,
-      deliveryOptionsId: "1",
-    },
-    {
-      productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
-      quantity: 1,
-      deliveryOptionsId: "2",
-    },
-  ];
 }
 
 // Save the current state of the cart to localStorage
@@ -24,18 +27,20 @@ function saveToStorage() {
 
 // Add a product to the cart, updating quantity if it already exists
 export function addToCart(productId) {
-  let matchingItem;
-  cart.forEach((cartItem) => {
-    if (productId === cartItem.productId) {
-      matchingItem = cartItem;
-    }
-  });
+  // Find the matching item in the cart
+  const matchingItem = cart.find(cartItem => cartItem.productId === productId);
 
-  const quantitySelector = document.querySelector(
-    `.js-quantity-selector-${productId}`
-  );
-  const quantity = Number(quantitySelector.value);
+  // Select the quantity input element
+  const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
+  const quantity = quantitySelector ? Number(quantitySelector.value) : 1; // Default to 1 if not found
 
+  // Check if the quantity is a valid number
+  if (isNaN(quantity) || quantity <= 0) {
+    console.error(`Invalid quantity for product ID ${productId}`);
+    return;
+  }
+
+  // Update the cart
   if (matchingItem) {
     matchingItem.quantity += quantity;
   } else {
@@ -45,6 +50,8 @@ export function addToCart(productId) {
       deliveryOptionsId: "1",
     });
   }
+
+  // Save the updated cart to localStorage
   saveToStorage();
 }
 
