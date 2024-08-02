@@ -8,7 +8,6 @@ class Cart {
   // with # it is a private classifier
   #storageKey;
 
-
   // Constructor to initialize the cart with a storage key
   constructor(storageKey) {
     this.#storageKey = storageKey;
