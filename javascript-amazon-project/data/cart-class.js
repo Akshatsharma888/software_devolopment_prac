@@ -3,19 +3,21 @@
 // a class is basically an object genreator.
 class Cart {
   // Declare properties
+  // without hash it is public property.
   cartItems;
-  storageKey;
+  // with # it is a private classifier
+  #storageKey;
 
 
   // Constructor to initialize the cart with a storage key
   constructor(storageKey) {
-    this.storageKey = storageKey;
-    this.loadFromStorage(); // Load items when creating the cart instance
+    this.#storageKey = storageKey;
+    this.#loadFromStorage(); // Load items when creating the cart instance
   }
 
   // Load items from local storage specific to this cart instance
-  loadFromStorage() {
-    const storedItems = JSON.parse(localStorage.getItem(this.storageKey));
+  #loadFromStorage() {
+    const storedItems = JSON.parse(localStorage.getItem(this.#storageKey));
     this.cartItems = storedItems || [
       // Default items if nothing is in storage
       {
@@ -33,7 +35,7 @@ class Cart {
 
   // Save items to local storage specific to this cart instance
   saveToStorage() {
-    localStorage.setItem(this.storageKey, JSON.stringify(this.cartItems));
+    localStorage.setItem(this.#storageKey, JSON.stringify(this.cartItems));
   }
 
   // Add a product to the cart
