@@ -61,6 +61,15 @@ export function removeCart(productId) {
   saveToStorage();
 }
 
+export function loadCart(fun) {
+  const xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', () => {
+    console.log(xhr.response); // Moved inside the load event listener
+    fun();
+  });
+  xhr.open('GET', 'https://supersimplebackend.dev/products');
+  xhr.send();
+}
 // Update the quantity of a product in the cart
 export function updateQuantity(productId, newQuantity) {
   const cartItem = cart.find((item) => item.productId === productId);
