@@ -8,17 +8,29 @@ import '../data/backend-prac.js';
 // thats why we use promises to keep our code flat intead using callbacks.
 // Async await is shortcut for promises.
 // Async just make a function return its promise.
+// throw 'error'; it manually throws error.
+// reject which is used to create an error in the future.
 
-async function loadPage(){
-  await loadProductsFetch();
-  await  new Promise((resolve) => {
-    loadCart(() => {
-      resolve();
+
+async function loadPage() {
+  try {
+    await loadProductsFetch();
+    await new Promise((resolve, reject) => {
+      loadCart((err) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve();
+      });
     });
-  });
-  renderOrderSummary();
-  renderPaymentSummary();
+    renderOrderSummary();
+    renderPaymentSummary();
+  } catch (error) {
+    console.error('Error loading page:', error);
+    // Handle the error appropriately, e.g., show an error message to the user
+  }
 }
+
 loadPage();
 
 
