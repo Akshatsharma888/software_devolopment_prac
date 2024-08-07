@@ -13,22 +13,18 @@ import '../data/backend-prac.js';
 
 
 async function loadPage() {
-  try {
-    await loadProductsFetch();
-    await new Promise((resolve, reject) => {
-      loadCart((err) => {
-        if (err) {
-          return reject(err);
-        }
-        resolve();
-      });
+  await loadProductsFetch();
+  await loadCartPromise();
+  renderOrderSummary();
+  renderPaymentSummary();
+}
+
+function loadCartPromise() {
+  return new Promise((resolve) => {
+    loadCart(() => {
+      resolve();
     });
-    renderOrderSummary();
-    renderPaymentSummary();
-  } catch (error) {
-    console.error('Error loading page:', error);
-    // Handle the error appropriately, e.g., show an error message to the user
-  }
+  });
 }
 
 loadPage();

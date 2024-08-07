@@ -1,19 +1,20 @@
 import { cart } from "../../data/cart.js";
-import { getProduct, products } from "../../data/products.js";
-import { deliveryOptions, getDeliveryOptions } from "../../data/deliveryoptions.js";
+import { getProduct } from "../../data/products.js";
+import { getDeliveryOptions } from "../../data/deliveryoptions.js";
 import { formatCurrency } from "../utils/money.js";
+import { addOrder } from "../../data/orders.js";
 
-export function renderPaymentSummary(){
+export function renderPaymentSummary() {
   let productPriceCents = 0;
   let ShippingPriceCents = 0;
   cart.forEach((cartItem) => {
     const product = getProduct(cartItem.productId);
-    productPriceCents+= product.priceCents * cartItem.quantity;
+    productPriceCents += product.priceCents * cartItem.quantity;
     const deliveryOption = getDeliveryOptions(cartItem.deliveryOptionId);
     ShippingPriceCents += deliveryOption.priceCents;
   });
   const totalBeforeTaxCents = productPriceCents + ShippingPriceCents;
-  const taxCents = totalBeforeTaxCents*0.1;
+  const taxCents = totalBeforeTaxCents * 0.1;
   const totalCents = totalBeforeTaxCents + taxCents;
 
   let cartQuantity = 0;
@@ -57,13 +58,30 @@ export function renderPaymentSummary(){
             $${formatCurrency(totalCents)}</div>
           </div>
 
-          <button class="place-order-button button-primary">
+          <button class="place-order-button button-primary js-place-order">
             Place your order
           </button>
   `;
   document.querySelector('.js-payment-summary').innerHTML = paymentsummaryHtml;
+  document.querySelector('.js-place-order').addEventListener('click', async () => {
+          const response = await fetch('https://supersimplebackend.dev/orders', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              cart: cart
+            })
+          });
+
+          const order = await response.json();
+          addOrder(order);
+
+          window.location.href = 'orders.html'
+  });
 }
+
 // Ensure the function is called after the DOM is loaded
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
   renderPaymentSummary();
 });
