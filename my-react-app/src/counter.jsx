@@ -8,6 +8,7 @@ function Counter(){
 
   const Increment = ()=>{
     setCount(count + 1);
+    // setCount(c=> c+1);this is another way to update val in counters. as it allows for safer updates.
   }
   const Decrement = ()=>{
     setCount(count - 1);
