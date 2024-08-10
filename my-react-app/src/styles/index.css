@@ -38,3 +38,49 @@
 .student p{
   margin: 0;
 }
+
+.welcome-message{
+  font-size: 2em;
+  background-color: rgb(74, 216, 35);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.login_error{
+  font-size: 2em;
+  background-color: rgb(237, 58, 8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.counter-div{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.count-display{
+  font-size: 10em;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.counterButton{
+  width: 150px;
+  height: 50px;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0px 5px;
+  background-color: rgb(21, 218, 236);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.counterButton:hover{
+  background-color: rgb(15, 233, 233);
+}
