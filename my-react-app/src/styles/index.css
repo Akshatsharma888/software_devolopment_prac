@@ -1,3 +1,32 @@
+body {
+  background-image: url(C:\software_devolopment_prac\my-react-app\src\assets\gray.jpg);
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  /* OPTIONAL */
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+.Clock-Container {
+  backdrop-filter: blur (5px);
+  width: 100vw;
+  padding: 10px 0;
+}
+
+.clock {
+  color: white;
+  font-size: 6rem;
+  font-weight: bold;
+  font-family: monospace;
+  text-align: center;
+  text-shadow: 3px 3px 5px □ hsla(0, 0%, 0%, 0.75);
+}
+
 .card {
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
@@ -82,36 +111,35 @@
   background-color: rgb(15, 233, 233);
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .color-picker-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 h1 {
   margin: 50px;
   font-size: 3rem;
 }
+
 .color-display {
   width: 300px;
   height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px solid Ihsl(0, 0%, 80%);
+  border: 5px solid hsl(0, 0%, 80%);
   border-radius: 25px;
   margin-bottom: 25px;
   transition: 0.25s ease;
 }
 
-color-display p {
+.color-display p {
   color: hsl(0, 0%, 20%);
   font-size: 2rem;
   text-align: center;
 }
+
 label {
   font-size: 1.5rem;
   font-weight: bold;
@@ -123,5 +151,85 @@ input[type="color"] {
   height: 50px;
   padding: 5px;
   border-radius: 10px;
-  border: 3px solid Ihsl(0, 0%, 80%);
+  border: 3px solid hsl(0, 0%, 80%);
+}
+
+.to-do-list {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+button {
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: rgb(156, 52, 52);
+  border-color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.Addtask {
+  background-color: hsl(125, 47%, 54%);
+}
+
+.Addtask:hover {
+  background-color: hsl(125, 47%, 54%);
+}
+
+.delete-button {
+  background-color: rgb(236, 75, 75);
+}
+
+.delete-button:hover {
+  background-color: red;
+}
+
+.up-button,
+.down-button {
+  background-color: rgb(27, 234, 209);
+}
+
+.up-button:hover,
+.down-button:hover {
+  background-color: rgb(13, 190, 113);
+}
+input[type="text"] {
+  font-size: 1.6rem;
+  padding: 10px;
+  border: 2px solid ☐ hsla(0, 0%, 80%, 0.5);
+  border-radius: 5px;
+  color: hsla(0, 0%, 0%, 0.5);
+}
+ol {
+  padding: 0;
+}
+
+li {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 15px;
+  background-color: ■hsl(0, 0%, 97%);
+  margin-bottom: 10px;
+  border: 3px solid ☐ hsla(0, 0%, 85%, 0.75);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  flex: 1;
+}
+
+.delete-button,
+.move-button {
+  padding: 8px 12px;
+  font-size: 1.4rem;
+  margin-left: 10px;
 }
