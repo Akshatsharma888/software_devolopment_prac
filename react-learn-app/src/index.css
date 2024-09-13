@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add this CSS in your main CSS file or directly in the head of your HTML */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+/* Add this CSS in your main CSS file */
+#root {
+  height: 100%;
+  width: 100%;
+}

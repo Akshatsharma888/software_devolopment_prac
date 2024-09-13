@@ -1,9 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/index.css'
+import App17 from './App17'
 // import App14 from './App14'
 // import App15 from './App15'
-import App16 from './App16'
+// import App16 from './App16'
 // import App12 from './App12'
 // import App13 from './App13'
 // import App from './App.jsx'
@@ -37,6 +38,7 @@ createRoot(document.getElementById('root')).render(
     {/* <App13/> */}
     {/* <App14/> */}
     {/* <App15/> */}
-    <App16/>
+    {/* <App16/> */}
+    <App17/>
   </StrictMode>,
 )
